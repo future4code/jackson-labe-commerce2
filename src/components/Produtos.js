@@ -26,14 +26,13 @@ const FiltroPreco = styled.select`
 `;
 
 const Main = styled.main`
-width: 100vw;
-height: auto;
-margin-top: 30px;
-display: flex;
-justify-content: center;
-align-items: center;
-
-`
+  width: 100vw;
+  height: auto;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const GridProdutos = styled.section`
   width: 65%;
@@ -42,90 +41,116 @@ const GridProdutos = styled.section`
   gap: 20px;
   grid-template-columns: repeat(4, 25%);
   grid-template-rows: repeat(2, 1fr);
-  justify-items: center;  
-  `
+  justify-items: center;
+`;
 
 const Item = styled.div`
-width: 250px;
-height: 400px;
-display: flex;
-flex-direction: column;
-align-items: center;
-border: 1px dotted #000;
-border-radius: 10px;
-`
+  width: 250px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dotted #000;
+  border-radius: 10px;
+`;
 
-const  ItemButton = styled.button`
-width: 80%;
-height: 40px;
-color: #c5c5c5;
-background-color: #000;
-border-radius: 8px;
-border: none;
-`
+const ItemButton = styled.button`
+  width: 80%;
+  height: 40px;
+  color: #c5c5c5;
+  background-color: #000;
+  border-radius: 8px;
+  border: none;
+`;
 
 export class Produtos extends React.Component {
   state = {
     produtosDaLoja: [
       {
         id: 1,
-        name: "Foguete de Corda",
-        value: 50.0,
-        imageUrl: "",
+        name: "Viagem para Marte",
+        value: 10000.0,
+        imageUrl: "https://picsum.photos/200/200",
       },
 
       {
         id: 2,
-        name: "Foguete de Corda",
-        value: 50.0,
-        imageUrl: "",
+        name: "Viagem para Mercúrio",
+        value: 40000.0,
+        imageUrl: "https://picsum.photos/200/200",
       },
 
       {
         id: 3,
-        name: "Foguete de Corda",
-        value: 50.0,
-        imageUrl: "",
+        name: "Viagem para Vênus",
+        value: 60000.0,
+        imageUrl: "https://picsum.photos/200/200",
       },
 
       {
         id: 4,
-        name: "Foguete de Corda",
-        value: 50.0,
-        imageUrl: "",
+        name: "Viagem para Júpter",
+        value: 80000.0,
+        imageUrl: "https://picsum.photos/200/200",
       },
 
       {
         id: 5,
-        name: "Foguete de Corda",
-        value: 50.0,
-        imageUrl: "",
+        name: "Viagem para Saturno",
+        value: 18000.0,
+        imageUrl: "https://picsum.photos/200/200",
       },
 
       {
         id: 6,
-        name: "Foguete de Corda",
-        value: 50.0,
-        imageUrl: "",
+        name: "Viagem para Urânio",
+        value: 5000.0,
+        imageUrl: "https://picsum.photos/200/200",
       },
 
       {
         id: 7,
-        name: "Foguete de Corda",
-        value: 50.0,
-        imageUrl: "",
+        name: "Viagem para Netuno",
+        value: 50000.0,
+        imageUrl: "https://picsum.photos/200/200",
       },
 
       {
         id: 8,
-        name: "Foguete de Corda",
-        value: 50.0,
-        imageUrl: "",
+        name: "Viagem para Plutão",
+        value: 150000.0,
+        imageUrl: "https://picsum.photos/200/200",
+      },
+
+      {
+        id: 9,
+        name: "Viagem para Sol",
+        value: 150000000000.0,
+        imageUrl: "https://picsum.photos/200/200",
+      },
+
+      {
+        id: 10,
+        name: "Viagem para Lua",
+        value: 1500.0,
+        imageUrl: "https://picsum.photos/200/200",
       },
     ],
   };
 
+  exibirProduto = () => {};
+
   render() {
+    const produtosNoComponente = this.state.produtosDaLoja.map((produto) => {
+      return (
+        <Main>
+          <p>{produto.name}</p>
+          <p>{produto.value}</p>
+          <img src={produto.imageUrl}/>
+        </Main>
+      );
+    });
+
     return (
       <ContainerPrincipal>
         <Cabecalho>
@@ -138,58 +163,42 @@ export class Produtos extends React.Component {
         <Main>
           <GridProdutos>
             <Item className="produto">
-              <img src="https://picsum.photos/200/200" />
-              <p>Nome do Produto</p>
-              <p>Preço do Produto</p>
+              {produtosNoComponente}
               <ItemButton>Adicionar ao Carrinho</ItemButton>
             </Item>
 
             <Item className="produto">
-              <img src="https://picsum.photos/200/200" />
-              <p>Nome do Produto</p>
-              <p>Preço do Produto</p>
+              {produtosNoComponente}
               <ItemButton>Adicionar ao Carrinho</ItemButton>
             </Item>
 
             <Item className="produto">
-              <img src="https://picsum.photos/200/200" />
-              <p>Nome do Produto</p>
-              <p>Preço do Produto</p>
+              {produtosNoComponente}
               <ItemButton>Adicionar ao Carrinho</ItemButton>
             </Item>
 
             <Item className="produto">
-              <img src="https://picsum.photos/200/200" />
-              <p>Nome do Produto</p>
-              <p>Preço do Produto</p>
+              {produtosNoComponente}
               <ItemButton>Adicionar ao Carrinho</ItemButton>
             </Item>
 
             <Item className="produto">
-              <img src="https://picsum.photos/200/200" />
-              <p>Nome do Produto</p>
-              <p>Preço do Produto</p>
+              {produtosNoComponente}
               <ItemButton>Adicionar ao Carrinho</ItemButton>
             </Item>
 
             <Item className="produto">
-              <img src="https://picsum.photos/200/200" />
-              <p>Nome do Produto</p>
-              <p>Preço do Produto</p>
+              {produtosNoComponente}
               <ItemButton>Adicionar ao Carrinho</ItemButton>
             </Item>
 
             <Item className="produto">
-              <img src="https://picsum.photos/200/200" />
-              <p>Nome do Produto</p>
-              <p>Preço do Produto</p>
+              {produtosNoComponente}
               <ItemButton>Adicionar ao Carrinho</ItemButton>
             </Item>
 
             <Item className="produto">
-              <img src="https://picsum.photos/200/200" />
-              <p>Nome do Produto</p>
-              <p>Preço do Produto</p>
+              {produtosNoComponente}
               <ItemButton>Adicionar ao Carrinho</ItemButton>
             </Item>
           </GridProdutos>
