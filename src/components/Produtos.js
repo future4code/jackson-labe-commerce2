@@ -36,7 +36,6 @@ const Main = styled.main`
 
 const GridProdutos = styled.section`
   width: 65%;
-  height: ;
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(4, 25%);
@@ -138,15 +137,32 @@ export class Produtos extends React.Component {
     ],
   };
 
-  exibirProduto = () => {};
+  adicionarProduto = (itemParaAdicionar) => {
+    const novaListaDeProdutos = this.state.produtosDaLoja.filter((item) => {
+      if (item.name === itemParaAdicionar) {
+        console.log("Oi")
+        return true;
+      } else {
+        return false;
+      }
+    });
+    this.setState({ produtosDaLoja: novaListaDeProdutos });
+  };
 
   render() {
     const produtosNoComponente = this.state.produtosDaLoja.map((produto) => {
       return (
         <Main>
-          <p>{produto.name}</p>
-          <p>{produto.value}</p>
-          <img src={produto.imageUrl}/>
+          <GridProdutos>
+            <Item className="produto">
+              <img src={produto.imageUrl} alt={"imagem de viagens"} />
+              <p>{produto.name}</p>
+              <p>{produto.value}</p>
+              <ItemButton onClick={() => this.adicionarProduto(produto.name)}>
+                Adicionar ao Carrinho
+              </ItemButton>
+            </Item>
+          </GridProdutos>
         </Main>
       );
     });
@@ -160,49 +176,7 @@ export class Produtos extends React.Component {
             <option value="precoDecrescente">Preço Decrescente</option>
           </FiltroPreco>
         </Cabecalho>
-        <Main>
-          <GridProdutos>
-            <Item className="produto">
-              {produtosNoComponente}
-              <ItemButton>Adicionar ao Carrinho</ItemButton>
-            </Item>
-
-            <Item className="produto">
-              {produtosNoComponente}
-              <ItemButton>Adicionar ao Carrinho</ItemButton>
-            </Item>
-
-            <Item className="produto">
-              {produtosNoComponente}
-              <ItemButton>Adicionar ao Carrinho</ItemButton>
-            </Item>
-
-            <Item className="produto">
-              {produtosNoComponente}
-              <ItemButton>Adicionar ao Carrinho</ItemButton>
-            </Item>
-
-            <Item className="produto">
-              {produtosNoComponente}
-              <ItemButton>Adicionar ao Carrinho</ItemButton>
-            </Item>
-
-            <Item className="produto">
-              {produtosNoComponente}
-              <ItemButton>Adicionar ao Carrinho</ItemButton>
-            </Item>
-
-            <Item className="produto">
-              {produtosNoComponente}
-              <ItemButton>Adicionar ao Carrinho</ItemButton>
-            </Item>
-
-            <Item className="produto">
-              {produtosNoComponente}
-              <ItemButton>Adicionar ao Carrinho</ItemButton>
-            </Item>
-          </GridProdutos>
-        </Main>
+        {produtosNoComponente}
       </ContainerPrincipal>
     );
   }
