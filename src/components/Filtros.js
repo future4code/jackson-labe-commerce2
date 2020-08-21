@@ -9,7 +9,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 97vh;
-  width: 15vw;
+  width: 25vw;
+  background-color: #8e44ad;
+
 `;
 
 const Input = styled.input`
@@ -18,7 +20,7 @@ const Input = styled.input`
   width: 75%;
 `;
 
-function Filtros(props) {
+function Filtro(props) {
         
     return (
         <Container>
@@ -44,4 +46,4 @@ function Filtros(props) {
     );
 }
 
-export default Filtros;
+export default Filtro;
